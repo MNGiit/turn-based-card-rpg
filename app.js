@@ -1,4 +1,5 @@
 let selectedTarget;
+let player = new Fighter(playerHealth, playerAttack);
 let playerHealth = 100;
 let enemyHealth = 10;
 
@@ -6,8 +7,9 @@ let playerAttack = 10;
 let enemyAttack = 1;
 
 class Fighter {
-    constructor(health = 3) {
+    constructor(health = 3, attack = 1) {
         this.health = health;
+        this.attack = attack;
     }
     isAlive() {
         if(this.health > 0) return true;
@@ -56,23 +58,26 @@ const selectTarget = (s) => {
     // need some way to correctly damage enemy
 
     // startNextTurn();
-    checkHealth();
+    // checkHealth();
+    // check health of all fighters, and if enemy is alive, attack player
+
 
     // testing enemy turn
-    checkEnemies();
-    if(enemyHealth > 0 && playerHealth > 0) {
-        playerHealth-=enemyAttack;
-        console.log("Enemy attacks player! Player health is now:", playerHealth);
-        checkHealth();
-    } 
+    // checkEnemies();
+    // if(enemyHealth > 0 && playerHealth > 0) {
+    //     playerHealth-=enemyAttack;
+    //     console.log("Enemy attacks player! Player health is now:", playerHealth);
+    //     checkHealth();
+    // } 
 
 
 }
 
 const checkHealth = () => {
     if(playerHealth <= 0) {console.log("Player loses! Game over.");}
-    else if(enemyHealth <= 0) {console.log("Enemy loses! Congrats player, you won the battle!");}
-    else if(enemyHealth > 0 && playerHealth > 0) {console.log("Both player and enemy can still fight!");}
+    // else if(enemyHealth <= 0) {console.log("Enemy loses! Congrats player, you won the battle!");}
+    // else if(enemyHealth > 0 && playerHealth > 0) {console.log("Both player and enemy can still fight!");}
+    else checkEnemies();
 }
 
 const checkEnemies = () => {
