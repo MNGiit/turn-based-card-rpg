@@ -3,7 +3,7 @@ let playerHealth = 10;
 let enemyHealth = 10;
 
 let playerAttack = 3;
-let enemyAttack = 1;
+let enemyAttack = 110;
 
 // start() starts combat round, player 1 goes first
 // selectCard()
@@ -25,6 +25,14 @@ const selectTarget = (s) => {
 
     // startNextTurn();
     checkHealth();
+
+    // testing enemy turn
+    if(enemyHealth > 0 && playerHealth > 0) {
+        playerHealth-=enemyAttack;
+        console.log("Enemy attacks player! Player health is now:", playerHealth);
+        checkHealth();
+    } 
+
 
 }
 
