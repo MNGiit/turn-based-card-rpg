@@ -63,7 +63,14 @@ const selectTarget = (s) => {
     // check health of all fighters, and if enemy is alive, attack player
     if(player.isAlive()) {
         if(enemiesCanContinueFight()) {
-            console.log("There are still enemies. Combat should continue.")
+            // console.log("There are still enemies. Combat should continue.")
+            enemies.forEach(function(enemy) {
+                if(enemy.isAlive()) {
+                    console.log("Enemy attacks player!");
+                    player.health-=enemy.attack;
+                    console.log("Player health:", player.health);
+                }
+            })
         }
         else console.log("There are no more enemies to fight. Combat should stop.");
     }
