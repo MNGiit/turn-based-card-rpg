@@ -1,9 +1,9 @@
 let selected;
-let playerHealth = 10;
+let playerHealth = 100;
 let enemyHealth = 10;
 
-let playerAttack = 3;
-let enemyAttack = 110;
+let playerAttack = 10;
+let enemyAttack = 1;
 
 class Fighter {
     constructor(health = 3) {
@@ -48,6 +48,7 @@ const selectTarget = (s) => {
     checkHealth();
 
     // testing enemy turn
+    checkEnemies();
     if(enemyHealth > 0 && playerHealth > 0) {
         playerHealth-=enemyAttack;
         console.log("Enemy attacks player! Player health is now:", playerHealth);
@@ -61,6 +62,17 @@ const checkHealth = () => {
     if(playerHealth <= 0) {console.log("Player loses! Game over.");}
     else if(enemyHealth <= 0) {console.log("Enemy loses! Congrats player, you won the battle!");}
     else if(enemyHealth > 0 && playerHealth > 0) {console.log("Both player and enemy can still fight!");}
+}
+
+const checkEnemies = () => {
+    let living = 0;
+    for(let i = 0; i < enemies.length; i++) {
+        if(enemies[i].isAlive()) {living++;}
+    }
+    if(living > 0) {
+        console.log("There are still enemies. Combat should continue.")
+    }
+    else console.log("All enemies are defeated. Combat should end.")
 }
 
 
