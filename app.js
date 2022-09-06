@@ -1,4 +1,4 @@
-let selected;
+let selectedTarget;
 let playerHealth = 100;
 let enemyHealth = 10;
 
@@ -32,13 +32,13 @@ enemiesCard.forEach(function(card, i){
 const selectTarget = (s) => {
     // selected = this; // seems to get the whole window
     // console.log(selected.event);
-    selected = s; // need some way to correctly get enemy
+    selectedTarget = s; // need some way to correctly get enemy
     // console.log("Target was selected.", s);
     // console.log("selected:", selected)
     enemiesCard.forEach(function(card, i){
         if(s === enemies[i].card) {
-            selected = enemies[i];
-            console.log("Found selected:", selected);
+            selectedTarget = enemies[i];
+            console.log("Found selected:", selectedTarget);
         }
     })
 
@@ -50,8 +50,9 @@ const selectTarget = (s) => {
     // enemyHealth-=playerAttack;
     // console.log("Player attacks enemy! Enemy health is now:", enemyHealth);
     console.log("Attacking target");
-    s.health-=playerAttack;
-    console.log("Player attacks enemy! Enemy health is now:", s.health);
+    console.log("Target health is:", selectedTarget.health);
+    selectedTarget.health-=playerAttack;
+    console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
     // need some way to correctly damage enemy
 
     // startNextTurn();
