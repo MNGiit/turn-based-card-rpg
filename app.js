@@ -9,6 +9,10 @@ class Fighter {
     constructor(health = 3) {
         this.health = health;
     }
+    isAlive() {
+        if(this.health > 0) return true;
+        else return false;
+    }
 }
 
 let enemies = [];
