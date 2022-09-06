@@ -1,0 +1,26 @@
+.battleContainer{
+    border: solid black;
+    /*display: flex; */
+    /* padding: 2px; change this later */
+}
+
+.enemiesContainer {
+    border: solid red;
+    height: 54vh;
+    /* padding: 10px; */
+}
+
+.cardsContainer {
+    border: solid green;
+    height: 15vh;
+}
+
+.partyContainer {
+    border: solid blue;
+    height: 15vh;
+}
+
+.messageLogContainer{
+    border: solid gray;
+    height: 10vh;
+}
