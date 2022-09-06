@@ -1,4 +1,9 @@
 let selected;
+let playerHealth = 10;
+let enemyHealth = 10;
+
+let playerAttack = 3;
+let enemyAttack = 1;
 
 // start() starts combat round, player 1 goes first
 // selectCard()
@@ -8,14 +13,25 @@ const selectTarget = (s) => {
     // console.log(selected.event);
     selected = s;
     console.log("Target was selected.");
-    console.log("selected:", selected)
+    // console.log("selected:", selected)
 
 
-    
+
     // card effect
-    // checkHealth();
+    // attack
+    console.log("Attacking target");
+    enemyHealth-=playerAttack;
+    console.log("Player attacks enemy! Enemy health is now:", enemyHealth);
 
+    // startNextTurn();
+    checkHealth();
 
+}
+
+const checkHealth = () => {
+    if(playerHealth <= 0) {console.log("Player loses! Game over.");}
+    else if(enemyHealth <= 0) {console.log("Enemy loses! Congrats player, you won the battle!");}
+    else if(enemyHealth > 0 && playerHealth > 0) {console.log("Both player and enemy can still fight!");}
 }
 
 // checkHealth() on all. if all player health is gone, game over, player loses
