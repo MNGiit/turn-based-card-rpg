@@ -1,5 +1,5 @@
 let selectedTarget;
-let player = new Fighter(playerHealth, playerAttack);
+
 let playerHealth = 100;
 let enemyHealth = 10;
 
@@ -17,13 +17,14 @@ class Fighter {
     }
 }
 
+let player = new Fighter(playerHealth, playerAttack);
 let enemies = [];
 let enemiesCard = document.querySelectorAll(".enemy");
-console.log(enemiesCard);
+// console.log(enemiesCard);
 enemiesCard.forEach(function(card, i){
     let enemy = new Fighter();
     enemy.card = enemiesCard[i];
-    console.log(enemy);
+    // console.log(enemy);
     enemies.push(enemy);
 })
 
@@ -60,7 +61,13 @@ const selectTarget = (s) => {
     // startNextTurn();
     // checkHealth();
     // check health of all fighters, and if enemy is alive, attack player
-
+    if(player.isAlive()) {
+        if(enemiesCanContinueFight()) {
+            console.log("There are still enemies. Combat should continue.")
+        }
+        else console.log("There are no more enemies to fight. Combat should stop.");
+    }
+    else console.log("Player loses! Game over.");
 
     // testing enemy turn
     // checkEnemies();
@@ -74,7 +81,7 @@ const selectTarget = (s) => {
 }
 
 const checkHealth = () => {
-    if(playerHealth <= 0) {console.log("Player loses! Game over.");}
+    if(player.isAlive()) {console.log("Player loses! Game over.");}
     // else if(enemyHealth <= 0) {console.log("Enemy loses! Congrats player, you won the battle!");}
     // else if(enemyHealth > 0 && playerHealth > 0) {console.log("Both player and enemy can still fight!");}
     else checkEnemies();
@@ -89,6 +96,15 @@ const checkEnemies = () => {
         console.log("There are still enemies. Combat should continue.")
     }
     else console.log("All enemies are defeated. Combat should end.")
+}
+
+const enemiesCanContinueFight = () => {
+    let living = 0;
+    for(let i = 0; i < enemies.length; i++) {
+        if(enemies[i].isAlive()) living++;
+    }
+    if(living > 0) return true;
+    else return false;
 }
 
 
