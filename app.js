@@ -11,8 +11,16 @@ class Fighter {
     }
 }
 
+let enemies = [];
 let enemiesCard = document.querySelectorAll(".enemy");
 console.log(enemiesCard);
+enemiesCard.forEach(function(card, i){
+    let enemy = new Fighter();
+    enemy.card = enemiesCard[i];
+    console.log(enemy);
+    enemies.push(enemy);
+})
+
 
 // start() starts combat round, player 1 goes first
 // selectCard()
