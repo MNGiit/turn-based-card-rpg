@@ -52,11 +52,25 @@ const selectTarget = (s) => {
     // console.log("Attacking target");
     // enemyHealth-=playerAttack;
     // console.log("Player attacks enemy! Enemy health is now:", enemyHealth);
-    console.log("Attacking target");
-    console.log("Target health is:", selectedTarget.health);
-    selectedTarget.health-=playerAttack;
-    console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
+
+    // console.log("Attacking target");
+    // console.log("Target health is:", selectedTarget.health);
+    // selectedTarget.health-=playerAttack;
+    // console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
+
     // need some way to correctly damage enemy
+
+
+    if(player.isAlive()) {
+        if(enemiesCanContinueFight()) {
+            console.log("Attacking target");
+            console.log("Target health is:", selectedTarget.health);
+            selectedTarget.health-=playerAttack;
+            console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
+        }
+        else console.log("Enemies are defeated. Fighting should stop.");
+    }
+
 
     // startNextTurn();
     // checkHealth();
