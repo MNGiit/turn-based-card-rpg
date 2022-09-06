@@ -5,6 +5,15 @@ let enemyHealth = 10;
 let playerAttack = 3;
 let enemyAttack = 110;
 
+class Fighter {
+    constructor(health = 3) {
+        this.health = health;
+    }
+}
+
+let enemiesCard = document.querySelectorAll(".enemy");
+console.log(enemiesCard);
+
 // start() starts combat round, player 1 goes first
 // selectCard()
 // selectTarget()
@@ -41,6 +50,8 @@ const checkHealth = () => {
     else if(enemyHealth <= 0) {console.log("Enemy loses! Congrats player, you won the battle!");}
     else if(enemyHealth > 0 && playerHealth > 0) {console.log("Both player and enemy can still fight!");}
 }
+
+
 
 // checkHealth() on all. if all player health is gone, game over, player loses
 // checkHealth() if all enemies health are gone, game over, player wins
