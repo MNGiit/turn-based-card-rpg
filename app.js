@@ -27,7 +27,7 @@ let enemies = [];
 let enemiesCard = document.querySelectorAll(".enemy");
 
 enemiesCard.forEach(function(card, i){
-    let enemy = new Fighter();
+    let enemy = new Fighter("Enemy " + (i + 1).toString()); // .toString to get rid of the 0 in Fighter 01
     enemy.card = enemiesCard[i];
     enemies.push(enemy);
 })
