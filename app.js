@@ -45,13 +45,13 @@ const selectTarget = (s) => {
 
     if(player.isAlive()) {
         if(enemiesCanContinueFight()) {
-            console.log("Attacking target");
-            console.log("Target health is:", selectedTarget.health);
+            // console.log("Attacking target");
+            // console.log("Target health is:", selectedTarget.health);
             selectedTarget.health-=playerAttack;
-            console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
+            // console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
             let text = document.createElement("p");
             text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
-            document.querySelector(".messageLogContainer").appendChild(text);
+            document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
         }
         else console.log("Enemies are defeated. Fighting should stop.");
     }
@@ -61,9 +61,12 @@ const selectTarget = (s) => {
         if(enemiesCanContinueFight()) {
             enemies.forEach(function(enemy) {
                 if(enemy.isAlive()) {
-                    console.log("Enemy attacks player!");
+                    // console.log("Enemy attacks player!");
                     player.health-=enemy.attack;
-                    console.log("Player health:", player.health);
+                    // console.log("Player health:", player.health);
+                    let text = document.createElement("p");
+                    text.innerHTML = "Enemy attacks player!";
+                    document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
                 }
             })
         }
