@@ -25,6 +25,10 @@
 .messageLogContainer{
     border: solid gray;
     height: 10vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow-y:auto; /* https://stackoverflow.com/questions/2836827/how-do-you-add-a-scroll-bar-to-a-div */
 }
 
 .enemy {
