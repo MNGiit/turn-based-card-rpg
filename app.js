@@ -18,6 +18,9 @@ class Fighter {
 }
 
 let player = new Fighter(playerHealth, playerAttack);
+let party = []; // player 1 is team a
+party.push(player);
+
 let enemies = [];
 let enemiesCard = document.querySelectorAll(".enemy");
 
