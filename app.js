@@ -1,5 +1,6 @@
 let selectedTarget;
 
+let playerName = "Player 1"
 let playerHealth = 100;
 let enemyHealth = 10;
 
@@ -18,7 +19,7 @@ class Fighter {
     }
 }
 
-let player = new Fighter(playerHealth, playerAttack);
+let player = new Fighter(playerName, playerHealth, playerAttack);
 let party = []; // player 1 is team a
 party.push(player);
 
