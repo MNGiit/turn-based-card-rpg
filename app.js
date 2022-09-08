@@ -7,7 +7,8 @@ let playerAttack = 10;
 let enemyAttack = 1;
 
 class Fighter {
-    constructor(health = 3, attack = 1) {
+    constructor(name = "Fighter", health = 3, attack = 1) {
+        this.name = name;
         this.health = health;
         this.attack = attack;
     }
