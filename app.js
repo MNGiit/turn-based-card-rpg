@@ -49,6 +49,9 @@ const selectTarget = (s) => {
             console.log("Target health is:", selectedTarget.health);
             selectedTarget.health-=playerAttack;
             console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
+            let text = document.createElement("p");
+            text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
+            document.querySelector(".messageLogContainer").appendChild(text);
         }
         else console.log("Enemies are defeated. Fighting should stop.");
     }
