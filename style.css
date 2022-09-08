@@ -8,6 +8,8 @@
     border: solid red;
     height: 54vh;
     /* padding: 10px; */
+    display: flex;
+    justify-content: space-evenly; /* space-between looks fine also */
 }
 
 .cardsContainer {
@@ -23,4 +25,8 @@
 .messageLogContainer{
     border: solid gray;
     height: 10vh;
+}
+
+.enemy {
+    border: solid orange;
 }
