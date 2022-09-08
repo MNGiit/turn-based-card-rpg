@@ -70,7 +70,12 @@ const selectTarget = (s) => {
                 }
             })
         }
-        else console.log("There are no more enemies to fight. Combat should stop.");
+        else {
+            // console.log("There are no more enemies to fight. Combat should stop.");
+            let text = document.createElement("p");
+            text.innerHTML = "There are no more enemies to fight. Combat should stop.";
+            document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
+        }
     }
     else console.log("Player loses! Game over.");
 
@@ -87,7 +92,10 @@ const checkEnemies = () => {
         if(enemies[i].isAlive()) {living++;}
     }
     if(living > 0) {
-        console.log("There are still enemies. Combat should continue.")
+        // console.log("There are still enemies. Combat should continue.")
+        let text = document.createElement("p");
+        text.innerHTML = "There are still enemies. Combat should continue.";
+        document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
     }
     else console.log("All enemies are defeated. Combat should end.")
 }
