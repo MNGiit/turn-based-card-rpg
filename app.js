@@ -121,7 +121,9 @@ const selectTarget = (s) => {
                 text.innerHTML = "Player attacks enemy for " + damage + " damage!";
                 if(selectedTarget.health <= 0) {
                     // Score
-                    player1Score+=100;
+                    // player1Score+=100;
+                    // rewardPoints(currentPlayer);
+                    rewardCurrentPlayerWithPoints();
                 }
             }
             else if(cardType === "Attack All") {
@@ -131,7 +133,8 @@ const selectTarget = (s) => {
                         enemy.health-=damage;
                         if(enemy.health <= 0) {
                             // Score
-                            player1Score+=100;
+                            // player1Score+=100;
+                            rewardCurrentPlayerWithPoints();
                         }
                     }
                 })
@@ -375,4 +378,9 @@ const playerTwoTurn = () => {
     let p2 = document.querySelector(".playerTwo");
     p2.style.opacity = "1";
     p2.style.backgroundColor = "green";
+}
+
+const rewardCurrentPlayerWithPoints = () => {
+    if(currentPlayer === party[0]) player1Score+=100;
+    else player2Score+=100;
 }
