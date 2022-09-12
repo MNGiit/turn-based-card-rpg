@@ -342,6 +342,16 @@ const startTwo = () => {
 
     removeMessages();
 
+    enemiesCard.forEach(function(card, i){
+        let enemy = new Fighter("Enemy " + (i + 1).toString()); // .toString to get rid of the 0 in Fighter 01
+        enemy.card = enemiesCard[i];
+        enemies.push(enemy);
+    })
+
+    document.querySelector(".battleContainer").style.display = "block";
+    // startBtn.style.display = "none";
+    document.querySelector(".rounds").style.display = "none";
+
     player = new Fighter(playerName, playerHealth, playerAttack);
     playerTwo = new Fighter("Player 2", playerHealth, playerAttack);
 
