@@ -150,3 +150,10 @@ const showCards = (c) => {
         document.querySelector(".cardsContainer").appendChild(card);
     }
 }
+
+const removeCards = () => {
+    let cards = document.querySelectorAll(".card");
+    for(let i = 0; i < cards.length; i++) {
+        cards[i].remove();
+    }
+}
