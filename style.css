@@ -39,6 +39,21 @@
     background-image: url("https://toppng.com/uploads/preview/park-bench-cartoon-11553201353bx9hzla9oa.png");
     /* background-size: contain; */
     background-size: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.playerOne {
+    border: solid orange;
+    background-color: orange;
+    width: 40%;
+
+}
+
+.playerTwo {
+    border: solid green;
+    width: 40%;
+    background-color: green;
 }
 
 .messageLogContainer{

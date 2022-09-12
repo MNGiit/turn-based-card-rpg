@@ -270,7 +270,7 @@ const openModal = () => {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
     player1Score += player.health;
-    modal.querySelector("p").innerHTML = "Player 1 Score: " + player1Score;
+    modal.querySelector("p").innerHTML = "Enemies defeated! You win! Player 1 Score: " + player1Score;
 
 }
 
@@ -310,7 +310,7 @@ const startOne = () => {
     document.querySelector(".battleContainer").style.display = "block";
     // startBtn.style.display = "none";
     document.querySelector(".rounds").style.display = "none";
-
+    playerOneTurn();
 }
 
 const startTwo = () => {
@@ -337,4 +337,28 @@ const partyCanContinue = () => {
     }
     if(lives>0) return true;
     else return false;
+}
+
+const playerOneTurn = () => {
+    let p2 = document.querySelector(".playerTwo")
+    p2.style.opacity = "0.5";
+    p2.style.backgroundColor = "black";
+    document.querySelector(".cardsContainer").style.background = "orange";
+    
+    // reset self
+    let p1 = document.querySelector(".playerOne");
+    p1.style.opacity = "1";
+    p1.style.backgroundColor = "orange";
+}
+
+const playerTwoTurn = () => {
+    let p1 = document.querySelector(".playerOne")
+    p1.style.opacity = "0.5";
+    p1.style.backgroundColor = "black";
+    document.querySelector(".cardsContainer").style.background = "green";
+
+    // reset self
+    let p2 = document.querySelector(".playerTwo");
+    p2.style.opacity = "1";
+    p2.style.backgroundColor = "green";
 }
