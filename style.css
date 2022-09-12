@@ -10,6 +10,8 @@
     /* padding: 10px; */
     display: flex;
     justify-content: space-evenly; /* space-between looks fine also */
+    background-image: url("https://res.cloudinary.com/simpleview/image/upload/v1651858755/clients/indiana/87A6309_d394276f-0e3a-4b0c-ac57-5be715429968.jpg");
+    background-size: cover;
 }
 
 .cardsContainer {
@@ -46,4 +48,6 @@
 
 .enemy {
     border: solid orange;
+    background-color: red;
+    height: 25vh;
 }
