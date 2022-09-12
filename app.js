@@ -327,3 +327,14 @@ const startTwo = () => {
     party.push(player);
     party.push(playerTwo);
 }
+
+const partyCanContinue = () => {
+    let lives = 0;
+    for(let i = 0; i < party.length; i++) {
+        if(party[i].health > 0) {
+            lives++;
+        }
+    }
+    if(lives>0) return true;
+    else return false;
+}
