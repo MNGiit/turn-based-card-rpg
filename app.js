@@ -289,8 +289,22 @@ const selectActionCard = () => {
 const openModal = () => {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
-    player1Score += player.health;
-    modal.querySelector("p").innerHTML = "Enemies defeated! You win! Player 1 Score: " + player1Score;
+    if(gameIs2PlayerMode) {
+        player1Score += party[0].health;
+        player2Score += party[1].health;
+
+        if(player1Score > player2Score) {
+            modal.querySelector("p").innerHTML = "Players defeated the enemies, congrats!" + `But player 1 score is ${player1Score}, and it's much better than player 2 score, which is a pathetic ${player2Score}`
+        }
+        else if (player2Score > player1Score) {
+            modal.querySelector("p").innerHTML = "Players defeated the enemies, congrats!" + `But player 2 score is ${player2Score}, and it's much better than player 1 score, which is a pathetic ${player1Score}`
+        }
+        else modal.querySelector("p").innerHTML = "Players did beat the enemies, but wasn't good enough to beat each other. DRAW."
+    }
+    else {
+        player1Score += player.health;
+        modal.querySelector("p").innerHTML = "Enemies defeated! You win! Player 1 Score: " + player1Score;
+    }
 
 }
 
@@ -400,4 +414,11 @@ const playerTwoTurn = () => {
 const rewardCurrentPlayerWithPoints = () => {
     if(currentPlayer === party[0]) player1Score+=100;
     else player2Score+=100;
+}
+
+const readyCurrentPlayerCards = () => {
+    if(currentPlayer === party[0]) {
+        playerOneTurn();
+    }
+    else playerTwoTurn();
 }
