@@ -174,7 +174,22 @@ const removeCards = () => {
 
 const selectActionCard = () => {
     // console.log(this.event.target); // this.event.target
+    let cards = document.querySelectorAll(".card");
+    if(selectActionCard) {
+        for(let i = 0; i < cards.length; i++) {
+            cards[i].style.opacity = "1";
+            cards[i].style.backgroundColor = "white";
+        }
+    }
     selectedActionCard = this.event.target;
+    console.log(cards);
+    for(let i = 0; i < cards.length; i++) {
+        if(selectedActionCard != cards[i]) {
+            cards[i].style.opacity = "0.2";
+            console.log(cards[i]);
+            cards[i].style.backgroundColor = "gray";
+        }
+    }
 }
 
 showCards(player.cards);
