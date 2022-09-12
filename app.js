@@ -59,6 +59,10 @@ enemiesCard.forEach(function(card, i){
 const selectTarget = (s) => {
     // selected = this; // seems to get the whole window
     // console.log(selected.event);
+    if(!selectedActionCard) {
+        console.log("Don't do anything.");
+        return;
+    }
     selectedTarget = s; // need some way to correctly get enemy
     enemiesCard.forEach(function(card, i){
         if(s === enemies[i].card) {
@@ -182,7 +186,7 @@ const selectActionCard = () => {
         }
     }
     selectedActionCard = this.event.target;
-    console.log(cards);
+
     for(let i = 0; i < cards.length; i++) {
         if(selectedActionCard != cards[i]) {
             cards[i].style.opacity = "0.2";
