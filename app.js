@@ -19,6 +19,15 @@ class Fighter {
     }
 }
 
+class Card {
+    constructor(name = "Card", description = "", strength = 1) {
+        this.name = name;
+        this.description = description;
+        this.strength = strength;
+    }
+
+}
+
 let player = new Fighter(playerName, playerHealth, playerAttack);
 let party = []; // player 1 is team a
 party.push(player);
