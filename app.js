@@ -11,6 +11,8 @@ let enemyAttack = 1;
 let player1Score = 0;
 let player2Score = 0;
 
+let gameIs2PlayerMode = false;
+
 class Fighter {
     constructor(name = "Fighter", health = 3, attack = 1) {
         this.name = name;
@@ -236,6 +238,14 @@ const removeCards = () => {
     }
 }
 
+const removeMessages = () => {
+    let messages = document.querySelectorAll(".messageLogContainer p")
+    console.log(messages);
+    for(let i = 0; i < messages.length; i++) {
+        messages[i].remove();
+    }
+}
+
 const selectActionCard = () => {
     // console.log(this.event.target); // this.event.target
     let cards = document.querySelectorAll(".card");
@@ -286,7 +296,10 @@ showCards(player.cards);
 let startBtn = document.querySelector(".start");
 
 const startOne = () => {
+    gameIs2PlayerMode = false;
     player1Score = 0;
+
+    removeMessages();
 
     enemiesCard.forEach(function(card, i){
         let enemy = new Fighter("Enemy " + (i + 1).toString()); // .toString to get rid of the 0 in Fighter 01
@@ -301,11 +314,14 @@ const startOne = () => {
 }
 
 const startTwo = () => {
+    gameIs2PlayerMode = true;
     player1Score = 0;
     player2Score = 0;
 
+    removeMessages();
+
     player = new Fighter(playerName, playerHealth, playerAttack);
-    playerTwo = new Fighter("Pkayer 2", playerHealth, playerAttack);
+    playerTwo = new Fighter("Player 2", playerHealth, playerAttack);
 
     party = [];
     party.push(player);
