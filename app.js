@@ -24,10 +24,20 @@ class Fighter {
         let c = new Card("Attack", "Simple attack.", attack);
         this.cards.push(c);
     }
+    createAttackAllCard() {
+        let attack = Math.floor(Math.random() * this.attack/2 + 1);
+        let c = new Card("Attack All", "Attack hits all enemies.", attack);
+        this.cards.push(c);
+    }
     createCards(n = 4) {
-        for(let i = 0; i < n; i++) {
-            this.createAttackCard();
-        }
+        this.cards = [];
+        // for(let i = 0; i < n; i++) {
+        //     this.createAttackCard();
+        // }
+        this.createAttackCard();
+        this.createAttackCard();
+        this.createAttackAllCard();
+        this.createAttackAllCard();
     }
 }
 
@@ -80,11 +90,14 @@ const selectTarget = (s) => {
         if(enemiesCanContinueFight()) {
             // console.log("Attacking target");
             // console.log("Target health is:", selectedTarget.health);
-            selectedTarget.health-=playerAttack;
+            // selectedTarget.health-=playerAttack;
             // console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
             let text = document.createElement("p");
             text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
             document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
+            if(selectedActionCard.innerHTML === "Attack") {
+                selectedTarget.health-=playerAttack;
+            }
         }
         else console.log("Enemies are defeated. Fighting should stop.");
     }
@@ -116,6 +129,11 @@ const selectTarget = (s) => {
         }
     }
     else console.log("Player loses! Game over.");
+
+    if(player.isAlive()) {
+        player.createCards();
+        showCards(player.cards);
+    }
 
 }
 
@@ -195,7 +213,7 @@ const selectActionCard = () => {
     for(let i = 0; i < cards.length; i++) {
         if(selectedActionCard != cards[i]) {
             cards[i].style.opacity = "0.2";
-            console.log(cards[i]);
+            // console.log(cards[i]);
             cards[i].style.backgroundColor = "gray";
         }
     }
