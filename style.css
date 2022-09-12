@@ -21,6 +21,11 @@
 
 .card {
     border: solid gold;
+    width: 19%;
+}
+
+.card:hover {
+    width: 22%;
 }
 
 .partyContainer {
