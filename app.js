@@ -153,6 +153,15 @@ const selectTarget = (s) => {
         c.remove();
     })
 
+    // check if there's a player 2
+    if(gameIs2PlayerMode) {
+        if(party[1].isAlive()) {
+            currentPlayer = party[1];
+            console.log(currentPlayer);
+        }
+    }
+    else console.log("Game is player 1.");
+
     // check health of all fighters, and if enemy is alive, attack player
     if(player.isAlive()) {
         if(enemiesCanContinueFight()) {
@@ -180,8 +189,6 @@ const selectTarget = (s) => {
         player.createCards();
         showCards(player.cards);
     }
-
-
 
     if(!enemiesCanContinueFight()) {
         openModal();
