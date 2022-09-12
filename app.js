@@ -1,4 +1,5 @@
 let selectedTarget;
+let selectedActionCard;
 
 let playerName = "Player 1"
 let playerHealth = 100;
@@ -159,6 +160,7 @@ const showCards = (c) => {
         strength.setAttribute("class", "strength");
         strength.innerHTML = `Strength: ${c[i].strength}`;
         card.appendChild(strength);
+        card.setAttribute("onclick", "selectActionCard()");
         document.querySelector(".cardsContainer").appendChild(card);
     }
 }
@@ -170,5 +172,9 @@ const removeCards = () => {
     }
 }
 
+const selectActionCard = () => {
+    // console.log(this.event.target); // this.event.target
+    selectedActionCard = this.event.target;
+}
 
 showCards(player.cards);
