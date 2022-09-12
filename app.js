@@ -98,7 +98,9 @@ const selectTarget = (s) => {
             let cardType = selectedActionCard.querySelector(".name").innerHTML;
             console.log(cardType)
             if(cardType === "Attack") {
-                selectedTarget.health-=playerAttack;
+                let damage = parseInt(selectedActionCard.querySelector(".strength").innerHTML.split("Strength: ")[1])
+                // console.log(damage);
+                selectedTarget.health-=damage;
                 text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
             }
             else if(cardType === "Attack All") {
