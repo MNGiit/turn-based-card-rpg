@@ -134,10 +134,14 @@ const createCards = () => {
 
 const showCards = (c) => {
     for(let i = 0; i < c.length; i++) {
+        console.log(c);
         let card = document.createElement("div");
         card.setAttribute("class", "card");
+        let name = document.createElement("div");
+        name.setAttribute("class", "name");
+        name.innerHTML = c[i].name;
+        card.appendChild(name);
         // card.style.backgroundColor = "black";
-        card.innerHTML = "Card"
         document.querySelector(".cardsContainer").appendChild(card);
     }
 }
