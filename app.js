@@ -12,6 +12,7 @@ let player1Score = 0;
 let player2Score = 0;
 
 let gameIs2PlayerMode = false;
+let currentPlayer;
 
 class Fighter {
     constructor(name = "Fighter", health = 3, attack = 1) {
@@ -78,6 +79,15 @@ const selectTarget = (s) => {
         console.log("Don't do anything.");
         return;
     }
+    // set currentPlayer
+    // if(gameIs2PlayerMode) {
+    //     console.log("Game is in 2 player mode.");
+    //     console.log("Current Player is:", currentPlayer);
+    // }
+    // else {
+    //     currentPlayer = party[0]; // player 1 is first in the array
+    //     console.log("Current Player is:", currentPlayer)
+    // }
 
     selectedTarget = s; // need some way to correctly get enemy
     enemiesCard.forEach(function(card, i){
@@ -92,7 +102,7 @@ const selectTarget = (s) => {
     // selectedTarget.health-=playerAttack;
     // console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
 
-    if(player.isAlive()) {
+    if(currentPlayer.isAlive()) { // player.isAlive()
         if(enemiesCanContinueFight()) {
             // console.log("Attacking target");
             // console.log("Target health is:", selectedTarget.health);
@@ -311,6 +321,8 @@ const startOne = () => {
     // startBtn.style.display = "none";
     document.querySelector(".rounds").style.display = "none";
     playerOneTurn();
+
+    currentPlayer = party[0];
 }
 
 const startTwo = () => {
@@ -326,6 +338,8 @@ const startTwo = () => {
     party = [];
     party.push(player);
     party.push(playerTwo);
+
+    currentPlayer = party[0];
 }
 
 const partyCanContinue = () => {
