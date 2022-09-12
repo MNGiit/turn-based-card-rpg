@@ -107,3 +107,15 @@
     text-decoration: none;
     cursor: pointer;
   }
+
+  .rounds {
+    background-image: url("https://e.snmc.io/lk/gv/x/381ab9ae322c75585e41cd7ddacf3955/5278447");
+    height: 90vh;
+    background-size: cover;
+    color: white;
+    text-shadow: 1px 1px gold;
+  }
+
+  .rounds p {
+    background-color: black;
+  }

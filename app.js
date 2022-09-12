@@ -89,6 +89,8 @@ const selectTarget = (s) => {
     //     console.log("Current Player is:", currentPlayer)
     // }
 
+    // readyCurrentPlayerCards();
+
     selectedTarget = s; // need some way to correctly get enemy
     enemiesCard.forEach(function(card, i){
         if(s === enemies[i].card) {
@@ -158,6 +160,7 @@ const selectTarget = (s) => {
         if(party[1].isAlive()) {
             currentPlayer = party[1];
             console.log(currentPlayer);
+            readyCurrentPlayerCards();
         }
     }
     else console.log("Game is player 1.");
@@ -372,6 +375,8 @@ const startTwo = () => {
     party = [];
     party.push(player);
     party.push(playerTwo);
+
+    playerOneTurn();
 
     currentPlayer = party[0];
 }
