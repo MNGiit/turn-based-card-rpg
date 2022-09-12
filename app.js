@@ -93,11 +93,18 @@ const selectTarget = (s) => {
             // selectedTarget.health-=playerAttack;
             // console.log("Player attacks enemy! Enemy health is now:", selectedTarget.health);
             let text = document.createElement("p");
-            text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
-            document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
-            if(selectedActionCard.innerHTML === "Attack") {
+            // text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
+            // document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
+            let cardType = selectedActionCard.querySelector(".name").innerHTML;
+            console.log(cardType)
+            if(cardType === "Attack") {
                 selectedTarget.health-=playerAttack;
+                text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
             }
+            else if(cardType === "Attack All") {
+                text.innerHTML = "Player attacks every enemy! Each enemy takes: " + "nothing for now";
+            }
+            document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
         }
         else console.log("Enemies are defeated. Fighting should stop.");
     }
