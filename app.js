@@ -155,6 +155,10 @@ const showCards = (c) => {
         name.innerHTML = c[i].name;
         card.appendChild(name);
         // card.style.backgroundColor = "black";
+        let strength = document.createElement("div");
+        strength.setAttribute("class", "strength");
+        strength.innerHTML = `Strength: ${c[i].strength}`;
+        card.appendChild(strength);
         document.querySelector(".cardsContainer").appendChild(card);
     }
 }
