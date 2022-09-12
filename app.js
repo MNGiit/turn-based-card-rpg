@@ -115,7 +115,10 @@ const selectTarget = (s) => {
             }
             document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
         }
-        else console.log("Enemies are defeated. Fighting should stop.");
+        else {
+            openModal();
+            console.log("Enemies are defeated. Fighting should stop.");
+        }
     }
 
     let cards = document.querySelectorAll(".card");
@@ -234,5 +237,24 @@ const selectActionCard = () => {
         }
     }
 }
+
+const openModal = () => {
+    let modal = document.querySelector(".modal");
+    modal.style.display = "block";
+
+}
+
+// const closeModal = () => {
+//     let modal = document.querySelector(".modal");
+//     modal.style.display = "none";
+// }
+// window.onclick = closeModal();
+
+window.onclick = function(event) {
+    let modal = document.querySelector(".modal");
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  } 
 
 showCards(player.cards);
