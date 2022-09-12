@@ -89,6 +89,11 @@ const selectTarget = (s) => {
         else console.log("Enemies are defeated. Fighting should stop.");
     }
 
+    let cards = document.querySelectorAll(".card");
+    cards.forEach(function(c){
+        c.remove();
+    })
+
     // check health of all fighters, and if enemy is alive, attack player
     if(player.isAlive()) {
         if(enemiesCanContinueFight()) {
