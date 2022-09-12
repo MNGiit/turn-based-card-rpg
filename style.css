@@ -35,6 +35,9 @@
 .partyContainer {
     border: solid blue;
     height: 15vh;
+    background-image: url("https://toppng.com/uploads/preview/park-bench-cartoon-11553201353bx9hzla9oa.png");
+    /* background-size: contain; */
+    background-size: 50%;
 }
 
 .messageLogContainer{
