@@ -23,6 +23,11 @@ class Fighter {
         let c = new Card("Attack", "Simple attack.", attack);
         this.cards.push(c);
     }
+    createCards(n = 4) {
+        for(let i = 0; i < n; i++) {
+            this.createAttackCard();
+        }
+    }
 }
 
 class Card {
@@ -37,6 +42,9 @@ class Card {
 let player = new Fighter(playerName, playerHealth, playerAttack);
 let party = []; // player 1 is team a
 party.push(player);
+player.createCards();
+
+
 
 let enemies = [];
 let enemiesCard = document.querySelectorAll(".enemy");
@@ -139,7 +147,7 @@ const createCards = () => {
 
 const showCards = (c) => {
     for(let i = 0; i < c.length; i++) {
-        console.log(c);
+        // console.log(c);
         let card = document.createElement("div");
         card.setAttribute("class", "card");
         let name = document.createElement("div");
@@ -157,3 +165,6 @@ const removeCards = () => {
         cards[i].remove();
     }
 }
+
+
+showCards(player.cards);
