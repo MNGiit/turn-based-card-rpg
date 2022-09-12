@@ -101,10 +101,17 @@ const selectTarget = (s) => {
                 let damage = parseInt(selectedActionCard.querySelector(".strength").innerHTML.split("Strength: ")[1])
                 // console.log(damage);
                 selectedTarget.health-=damage;
-                text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
+                // text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
+                text.innerHTML = "Player attacks enemy for " + damage + " damage!";
             }
             else if(cardType === "Attack All") {
-                text.innerHTML = "Player attacks every enemy! Each enemy takes: " + "nothing for now";
+                let damage = parseInt(selectedActionCard.querySelector(".strength").innerHTML.split("Strength: ")[1])
+                enemies.forEach(function(enemy) {
+                    if(enemy.health > 0) {
+                        enemy.health-=damage;
+                    }
+                })
+                text.innerHTML = "Player attacks each enemy for " + damage + " damage!";
             }
             document.querySelector(".messageLogContainer").appendChild(text).scrollIntoView();
         }
