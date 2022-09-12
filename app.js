@@ -257,6 +257,8 @@ window.onclick = function(event) {
     let modal = document.querySelector(".modal");
     if (event.target == modal) {
       modal.style.display = "none";
+      startBtn.style.display = "block";
+      document.querySelector(".battleContainer").style.display = "none";
     }
   } 
 
