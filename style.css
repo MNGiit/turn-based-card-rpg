@@ -15,6 +15,8 @@
 .cardsContainer {
     border: solid green;
     height: 15vh;
+    display: flex;
+    justify-content: space-between;
 }
 
 .partyContainer {
