@@ -76,6 +76,7 @@ const selectTarget = (s) => {
         console.log("Don't do anything.");
         return;
     }
+
     selectedTarget = s; // need some way to correctly get enemy
     enemiesCard.forEach(function(card, i){
         if(s === enemies[i].card) {
@@ -163,6 +164,12 @@ const selectTarget = (s) => {
     if(player.isAlive()) {
         player.createCards();
         showCards(player.cards);
+    }
+
+
+
+    if(!enemiesCanContinueFight()) {
+        openModal();
     }
 
 }
@@ -267,7 +274,8 @@ window.onclick = function(event) {
     let modal = document.querySelector(".modal");
     if (event.target == modal) {
       modal.style.display = "none";
-      startBtn.style.display = "block";
+      // startBtn.style.display = "block";
+      document.querySelector(".rounds").style.display = "block";
       document.querySelector(".battleContainer").style.display = "none";
     }
   } 
@@ -287,7 +295,8 @@ const startOne = () => {
     })
 
     document.querySelector(".battleContainer").style.display = "block";
-    startBtn.style.display = "none";
+    // startBtn.style.display = "none";
+    document.querySelector(".rounds").style.display = "none";
 
 }
 
