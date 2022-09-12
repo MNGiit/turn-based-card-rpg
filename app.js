@@ -18,6 +18,11 @@ class Fighter {
         if(this.health > 0) return true;
         else return false;
     }
+    createAttackCard() {
+        let attack = Math.floor(Math.random() * this.attack + 1);
+        let c = new Card("Attack", "Simple attack.", attack);
+        this.cards.push(c);
+    }
 }
 
 class Card {
