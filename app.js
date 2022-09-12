@@ -8,6 +8,9 @@ let enemyHealth = 10;
 let playerAttack = 10;
 let enemyAttack = 1;
 
+let player1Score = 0;
+let player2Score = 0;
+
 class Fighter {
     constructor(name = "Fighter", health = 3, attack = 1) {
         this.name = name;
@@ -60,11 +63,11 @@ player.createCards();
 let enemies = [];
 let enemiesCard = document.querySelectorAll(".enemy");
 
-enemiesCard.forEach(function(card, i){
-    let enemy = new Fighter("Enemy " + (i + 1).toString()); // .toString to get rid of the 0 in Fighter 01
-    enemy.card = enemiesCard[i];
-    enemies.push(enemy);
-})
+// enemiesCard.forEach(function(card, i){
+//     let enemy = new Fighter("Enemy " + (i + 1).toString()); // .toString to get rid of the 0 in Fighter 01
+//     enemy.card = enemiesCard[i];
+//     enemies.push(enemy);
+// })
 
 const selectTarget = (s) => {
     // selected = this; // seems to get the whole window
@@ -258,3 +261,19 @@ window.onclick = function(event) {
   } 
 
 showCards(player.cards);
+
+
+let startBtn = document.querySelector(".start");
+
+const start = () => {
+
+    enemiesCard.forEach(function(card, i){
+        let enemy = new Fighter("Enemy " + (i + 1).toString()); // .toString to get rid of the 0 in Fighter 01
+        enemy.card = enemiesCard[i];
+        enemies.push(enemy);
+    })
+
+    document.querySelector(".battleContainer").style.display = "block";
+    startBtn.style.display = "none";
+
+}
