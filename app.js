@@ -54,11 +54,11 @@ class Card {
 }
 
 let player = new Fighter(playerName, playerHealth, playerAttack);
+let playerTwo = new Fighter("Pkayer 2", playerHealth, playerAttack);
+
 let party = []; // player 1 is team a
 party.push(player);
 player.createCards();
-
-
 
 let enemies = [];
 let enemiesCard = document.querySelectorAll(".enemy");
@@ -106,12 +106,20 @@ const selectTarget = (s) => {
                 selectedTarget.health-=damage;
                 // text.innerHTML = "Player attacks enemy! Enemy health is now: " + selectedTarget.health;
                 text.innerHTML = "Player attacks enemy for " + damage + " damage!";
+                if(selectedTarget.health <= 0) {
+                    // Score
+                    player1Score+=100;
+                }
             }
             else if(cardType === "Attack All") {
                 let damage = parseInt(selectedActionCard.querySelector(".strength").innerHTML.split("Strength: ")[1])
                 enemies.forEach(function(enemy) {
                     if(enemy.health > 0) {
                         enemy.health-=damage;
+                        if(enemy.health <= 0) {
+                            // Score
+                            player1Score+=100;
+                        }
                     }
                 })
                 text.innerHTML = "Player attacks each enemy for " + damage + " damage!";
@@ -244,6 +252,8 @@ const selectActionCard = () => {
 const openModal = () => {
     let modal = document.querySelector(".modal");
     modal.style.display = "block";
+    player1Score += player.health;
+    modal.querySelector("p").innerHTML = "Player 1 Score: " + player1Score;
 
 }
 
@@ -267,7 +277,8 @@ showCards(player.cards);
 
 let startBtn = document.querySelector(".start");
 
-const start = () => {
+const startOne = () => {
+    player1Score = 0;
 
     enemiesCard.forEach(function(card, i){
         let enemy = new Fighter("Enemy " + (i + 1).toString()); // .toString to get rid of the 0 in Fighter 01
@@ -278,4 +289,16 @@ const start = () => {
     document.querySelector(".battleContainer").style.display = "block";
     startBtn.style.display = "none";
 
+}
+
+const startTwo = () => {
+    player1Score = 0;
+    player2Score = 0;
+
+    player = new Fighter(playerName, playerHealth, playerAttack);
+    playerTwo = new Fighter("Pkayer 2", playerHealth, playerAttack);
+
+    party = [];
+    party.push(player);
+    party.push(playerTwo);
 }
