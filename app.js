@@ -12,6 +12,7 @@ class Fighter {
         this.name = name;
         this.health = health;
         this.attack = attack;
+        this.cards = [];
     }
     isAlive() {
         if(this.health > 0) return true;
@@ -121,4 +122,22 @@ const enemiesCanContinueFight = () => {
     }
     if(living > 0) return true;
     else return false;
+}
+
+const createCards = () => {
+    let cards = [];
+    for(let i = 0; i < 4; i++) {
+        cards.push(new Card("Attack", "Pick a target to attack", 3));
+    }
+    return cards;
+}
+
+const showCards = (c) => {
+    for(let i = 0; i < c.length; i++) {
+        let card = document.createElement("div");
+        card.setAttribute("class", "card");
+        // card.style.backgroundColor = "black";
+        card.innerHTML = "Card"
+        document.querySelector(".cardsContainer").appendChild(card);
+    }
 }
